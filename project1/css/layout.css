@@ -1,0 +1,133 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* 質感毛玻璃導覽列 */
+.navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-nav a {
+  font-weight: 500;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.navbar-nav a:hover, .navbar-nav a.active {
+  color: var(--primary);
+}
+
+/* 主體區塊網格 */
+.main-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  flex: 1;
+}
+
+/* 側邊欄設計 */
+.sidebar {
+  background-color: #FFFFFF;
+  border-right: 1px solid var(--border-color);
+  padding: 2.5rem 1.5rem;
+  position: sticky;
+  top: 80px;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-menu a {
+  padding: 0.85rem 1.25rem;
+  border-radius: 10px;
+  color: var(--text-main);
+  font-weight: 500;
+  transition: var(--transition);
+  display: block;
+}
+
+.sidebar-menu a:hover, .sidebar-menu a.active {
+  background-color: #FDF2F1;
+  color: var(--primary);
+}
+
+/* 內容主工作區 */
+.content-area {
+  padding: 3rem;
+  max-width: 1200px;
+}
+
+/* 網格系統 Grid */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* RWD 響應式手機調整 */
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+
+  .content-area {
+    padding: 1.5rem;
+  }
+}
